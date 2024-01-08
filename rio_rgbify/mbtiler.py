@@ -311,7 +311,7 @@ class RGBTiler:
         if ext_t:
             traceback.print_exc()
 
-    def run(self, processes=8):
+    def run(self, processes=4):
         """
         Warp, encode, and tile
         """
