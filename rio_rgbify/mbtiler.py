@@ -42,7 +42,7 @@ def _main_worker(inpath, g_work_func, g_args):
     work_func = g_work_func
     global_args = g_args
 
-    src = rasterio.open(inpath)
+    src = rasterio.open(inpath, BIGTIFF='YES')
 
 
 def _encode_as_webp(data, profile=None, affine=None):
@@ -317,7 +317,7 @@ class RGBTiler:
         """
 
         # get the bounding box + crs of the file to tile
-        with rasterio.open(self.inpath) as src:
+        with rasterio.open(self.inpath, BIGTIFF='YES') as src:
             bbox = list(src.bounds)
             src_crs = src.crs
 
